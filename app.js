@@ -23,6 +23,7 @@ const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
 
-app.listen(3000, function() {
-    console.log('App now running on port', this.address().port);
-  });
+var server = app.listen(process.env.PORT || 8080, function() {
+  var port = server.address().port;
+  console.log('目前的port是', port);
+});
