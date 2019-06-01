@@ -4,7 +4,7 @@ var linebot = require('linebot');
 var bot = linebot({
   channelId: '1527714810',
   channelSecret: '65ed70fea94760555cce9d6716d1f12d',
-  channelAccessToken: 'wGu8qEGNCRCmH1sPtiOBMlfYBMH29aoNjUbJ/DT4Q+JTuIduvWtMIVOIinIclAN3GWVCvk5HTiUy2VKemVz5YVMDplTazfMFccM2PVT6xWjs+0OMhcBV18stBs29OpXyuMDZpxziYueH6OQOUykuqAdB04t89/1O/w1cDnyilFU='
+  channelAccessToken: 'Ght2+eMo4wGplzahPLdRHOjxPNlaxGMM70dJtCMh6VybvDMiXHUfrkrasr1WSIlh10ZmVG2VOsoDWmEkpWEjYKVWT2ZSjYn4ghpajLepIA1rcHBuqlOeFXhzqIuB3ui0NvZapuRWAxxpi3hdVC0JTAdB04t89/1O/w1cDnyilFU='
 });
 
 // 當有人傳送訊息給Bot時
