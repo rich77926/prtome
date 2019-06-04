@@ -12,6 +12,9 @@ var bot = linebot({
 bot.on('message', function (event) {
   if (event.message.type = 'text') {
       var msg = event.message.text;
+
+      console.log(msg);
+
       //重覆使用者說的訊息
       event.reply("您說："+msg).then(function (data) {
           // success
