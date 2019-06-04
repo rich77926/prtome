@@ -7,10 +7,21 @@ var bot = linebot({
   channelAccessToken: 'Ght2+eMo4wGplzahPLdRHOjxPNlaxGMM70dJtCMh6VybvDMiXHUfrkrasr1WSIlh10ZmVG2VOsoDWmEkpWEjYKVWT2ZSjYn4ghpajLepIA1rcHBuqlOeFXhzqIuB3ui0NvZapuRWAxxpi3hdVC0JTAdB04t89/1O/w1cDnyilFU='
 });
 
-bot.on('message', function(event) {
-  console.log(event); //把收到訊息的 event 印出來看看
-});
 
+//取得使用者回覆的訊息
+bot.on('message', function (event) {
+  if (event.message.type = 'text') {
+      var msg = event.message.text;
+      //重覆使用者說的訊息
+      event.reply("您說："+msg).then(function (data) {
+          // success
+          console.log(event);
+      }).catch(function (error) {
+          // error
+          console.log('error:'+error);
+      });
+  }
+});
 const app = express();
 const linebotParser = bot.parser();
 app.post('/', linebotParser);
