@@ -14,9 +14,15 @@ app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
+app.on('join', function (event) {
+    event.reply('Thanks for invite me to this group, this group id is: ' + event.source.groupId);
+  });
+
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
-    var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
+
+    var groupId = req.headers['groupId'];
+    //var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
     var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : '+ req.body.resource._links.web.href;
     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
     res.send(sendMsg);
