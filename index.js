@@ -14,6 +14,10 @@ app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
+app.on('join', function (event) {
+    event.reply('Thanks for invite me to this group, this group id is : ' + event.source.groupId);
+  });
+
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
