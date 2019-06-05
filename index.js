@@ -42,6 +42,8 @@ app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
+app.use(express.json());
+
 app.post('/devops', function (req, res) { 
     console.log(req.body);
     console.log(req.body.message.html);
