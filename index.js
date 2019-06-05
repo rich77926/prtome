@@ -8,22 +8,22 @@ var bot = linebot({
 });
 
 //取得使用者回覆的訊息
-bot.on('message', function (event) {
-    if (event.message.type = 'text') {
-        // var msg = event.message.text;
+// bot.on('message', function (event) {
+//     if (event.message.type = 'text') {
+//         // var msg = event.message.text;
 
-        console.log(event.source.groupId);
+//         console.log(event.source.groupId);
 
-        //重覆使用者說的訊息
-        // event.reply("Test").then(function (data) {
-        //     // success
-        //     // console.log(event);
-        // }).catch(function (error) {
-        //     // error
-        //     console.log('error:'+error);
-        // });
-    }
-});
+//         //重覆使用者說的訊息
+//         // event.reply("Test").then(function (data) {
+//         //     // success
+//         //     // console.log(event);
+//         // }).catch(function (error) {
+//         //     // error
+//         //     console.log('error:'+error);
+//         // });
+//     }
+// });
 
 const app = express();
 const linebotParser = bot.parser();
