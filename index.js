@@ -15,15 +15,22 @@ app.get("/", function (req, res) {
 });
 
 app.on('join', function (event) {
-    event.reply('Thanks for invite me to this group, this group id is : ' + event.source.groupId);
-  });
+    let groupId = event.source.groupId;
+    console.log(groupId);
+    event.reply('Thanks for invite me to this group, this group id is : ' + groupId);
+}).catch(function(err) {
+    console.error(err);
+});
 
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     var groupId = req.headers['groupId'];
-    //var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
+    console.log(groupId); //var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
+
     var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : '+ req.body.resource._links.web.href;
-    bot.push(groupId, [sendMsg]).catch(function(err){console.log(err)});
+    bot.push(groupId, [sendMsg]).catch(function(err) {
+        console.error(err);
+    });
     res.send(sendMsg);
 });
 
