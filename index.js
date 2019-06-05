@@ -22,6 +22,7 @@ bot.on('join', function (event) {
 
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
+    console.log(req.headers);
     var groupId = req.headers['groupId'];
     console.log(groupId); //var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
 
