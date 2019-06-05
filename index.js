@@ -41,6 +41,12 @@ const linebotParser = bot.parser();
 app.get("/", function (req, res) { 
     res.send("Hello LineBot");
 });
+
+app.post('/devops', function (req, res) { 
+    console.log(req);
+    res.send("Ok");
+});
+
 app.post('/linebot', linebotParser);
 
 //因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
