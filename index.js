@@ -14,7 +14,7 @@ app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
-app.on('join', function (event) {
+bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
     event.reply('Thanks for invite me to this group, this group id is : ' + groupId);
