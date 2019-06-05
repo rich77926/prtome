@@ -39,11 +39,12 @@ bot.on('message', function (event) {
 const app = express();
 const linebotParser = bot.parser();
 app.get("/", function (req, res) { 
-    res.send("Hello LineBot");
+    res.send("Hello this is Tai App.");
 });
 
 app.post('/devops', function (req, res) { 
-    console.log(req);
+    console.log(req.body);
+    console.log(req.body.message.html);
     res.send("Ok");
 });
 
