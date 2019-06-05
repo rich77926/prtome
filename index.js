@@ -34,13 +34,11 @@ app.get("/", function (req, res) {
 });
 
 app.use('/devops', express.json());
-app.post('/devops', function (req, res) { 
-    //console.log(req.body);
-    //console.log(req.body.message.html);
+app.post('/devops', function (req, res) {
     var userId = 'Uae110a6760ecc0163e88555fa46a90b2';
-    var sendMsg = "req.body.message.html";
+    var sendMsg = req.body.detailedMessage.text;
     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
-    res.send(req.body.message.html);
+    res.send(sendMsg);
 });
 
 // 主動發送訊息
