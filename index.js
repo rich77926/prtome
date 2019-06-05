@@ -28,29 +28,29 @@ bot.on('message', function (event) {
 
 const app = express();
 const linebotParser = bot.parser();
+
 app.get("/", function (req, res) { 
     res.send("Hello this is Tai App.");
 });
 
-//app.use(express.json());
-
-// app.post('/devops', function (req, res) { 
-//     //console.log(req.body);
-//     //console.log(req.body.message.html);
-//     var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
-//     var sendMsg = "push hands up ";
-//     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
-//     res.send(req.body.message.html);
-// });
+app.use('/devops', express.json());
+app.post('/devops', function (req, res) { 
+    //console.log(req.body);
+    //console.log(req.body.message.html);
+    var userId = 'Uae110a6760ecc0163e88555fa46a90b2';
+    var sendMsg = "req.body.message.html";
+    bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
+    res.send(req.body.message.html);
+});
 
 // 主動發送訊息
-setTimeout(function () {
-    var userId = 'Uae110a6760ecc0163e88555fa46a90b2';
-    var sendMsg = "push hands up ";
-    bot.push(userId, [sendMsg]);
-    console.log('userId: ' + userId);
-    console.log('send: ' + sendMsg);
-}, 3000);
+// setTimeout(function () {
+//     var userId = 'Uae110a6760ecc0163e88555fa46a90b2';
+//     var sendMsg = "push hands up ";
+//     bot.push(userId, [sendMsg]);
+//     console.log('userId: ' + userId);
+//     console.log('send: ' + sendMsg);
+// }, 3000);
 
 app.post('/linebot', linebotParser);
 
