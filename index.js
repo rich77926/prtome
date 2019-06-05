@@ -12,7 +12,7 @@ bot.on('message', function (event) {
     if (event.message.type = 'text') {
         // var msg = event.message.text;
 
-        console.log(event);
+        console.log(event.source.groupId);
 
         //重覆使用者說的訊息
         // event.reply("Test").then(function (data) {
