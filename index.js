@@ -2,10 +2,16 @@ var linebot = require('linebot');
 var express = require('express');
 
 var bot = linebot({
-    channelId: '1580401641',
-    channelSecret: 'd0e15a3c41a0a13913004e50d89bd9c6',
+    channelId: '1527714810',
+    channelSecret: '65ed70fea94760555cce9d6716d1f12d',
     channelAccessToken: 'wGu8qEGNCRCmH1sPtiOBMlfYBMH29aoNjUbJ/DT4Q+JTuIduvWtMIVOIinIclAN3GWVCvk5HTiUy2VKemVz5YVMDplTazfMFccM2PVT6xWjs+0OMhcBV18stBs29OpXyuMDZpxziYueH6OQOUykuqAdB04t89/1O/w1cDnyilFU='
 });
+
+//var bot = linebot({
+//    channelId: '1580401641',
+//    channelSecret: 'd0e15a3c41a0a13913004e50d89bd9c6',
+//    channelAccessToken: 'wGu8qEGNCRCmH1sPtiOBMlfYBMH29aoNjUbJ/DT4Q+JTuIduvWtMIVOIinIclAN3GWVCvk5HTiUy2VKemVz5YVMDplTazfMFccM2PVT6xWjs+0OMhcBV18stBs29OpXyuMDZpxziYueH6OQOUykuqAdB04t89/1O/w1cDnyilFU='
+//});
 
 //取得使用者回覆的訊息
 bot.on('message', function (event) {
