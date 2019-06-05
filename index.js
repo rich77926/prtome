@@ -16,7 +16,7 @@ bot.on('message', function (event) {
 
 
         //重覆使用者說的訊息
-        event.reply("您說："+msg).then(function (data) {
+        event.reply("Test").then(function (data) {
             // success
             // console.log(event);
         }).catch(function (error) {
