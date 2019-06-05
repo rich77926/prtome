@@ -45,8 +45,11 @@ app.get("/", function (req, res) {
 app.use(express.json());
 
 app.post('/devops', function (req, res) { 
-    console.log(req.body);
-    console.log(req.body.message.html);
+    //console.log(req.body);
+    //console.log(req.body.message.html);
+    var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
+    var sendMsg = "push hands up ";
+    bot.push(userId, [sendMsg]);
     res.send(req.body.message.html);
 });
 
