@@ -49,7 +49,7 @@ app.post('/devops', function (req, res) {
     //console.log(req.body.message.html);
     var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
     var sendMsg = "push hands up ";
-    bot.push(userId, [sendMsg]);
+    bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
     res.send(req.body.message.html);
 });
 
