@@ -27,13 +27,13 @@ bot.on('message', function (event) {
 });
 
 // 主動發送訊息
-// setTimeout(function () {
-//    var userId = 'Your User ID';
-//    var sendMsg = "push hands up ";
-//    bot.push(userId, [sendMsg]);
-//    console.log('userId: ' + userId);
-//    console.log('send: ' + sendMsg);
-//}, 3000);
+ setTimeout(function () {
+    var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
+    var sendMsg = "push hands up ";
+    bot.push(userId, [sendMsg]);
+    console.log('userId: ' + userId);
+    console.log('send: ' + sendMsg);
+}, 5000);
 
 
 const app = express();
