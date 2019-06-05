@@ -45,7 +45,7 @@ app.get("/", function (req, res) {
 app.post('/devops', function (req, res) { 
     console.log(req.body);
     console.log(req.body.message.html);
-    res.send("Ok");
+    res.send(req.body.message.html);
 });
 
 app.post('/linebot', linebotParser);
