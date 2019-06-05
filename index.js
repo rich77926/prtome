@@ -10,19 +10,18 @@ var bot = linebot({
 //取得使用者回覆的訊息
 bot.on('message', function (event) {
     if (event.message.type = 'text') {
-        var msg = event.message.text;
+        // var msg = event.message.text;
 
-        console.log(msg);
-
+        console.log(event);
 
         //重覆使用者說的訊息
-        event.reply("Test").then(function (data) {
-            // success
-            // console.log(event);
-        }).catch(function (error) {
-            // error
-            console.log('error:'+error);
-        });
+        // event.reply("Test").then(function (data) {
+        //     // success
+        //     // console.log(event);
+        // }).catch(function (error) {
+        //     // error
+        //     console.log('error:'+error);
+        // });
     }
 });
 
