@@ -18,8 +18,6 @@ bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
     event.reply('Thanks for invite me to this group, this group id is : ' + groupId);
-}).catch(function(err) {
-    console.error(err);
 });
 
 app.use('/devops', express.json());
