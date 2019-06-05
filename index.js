@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
-    var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : '+ req.body.resource._links.web;
+    var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : '+ req.body.resource._links.web.href;
     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
     res.send(sendMsg);
 });
