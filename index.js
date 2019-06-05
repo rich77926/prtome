@@ -2,9 +2,9 @@ var linebot = require('linebot');
 var express = require('express');
 
 var bot = linebot({
-    channelId: '1527714810',
-    channelSecret: '65ed70fea94760555cce9d6716d1f12d',
-    channelAccessToken: 'wGu8qEGNCRCmH1sPtiOBMlfYBMH29aoNjUbJ/DT4Q+JTuIduvWtMIVOIinIclAN3GWVCvk5HTiUy2VKemVz5YVMDplTazfMFccM2PVT6xWjs+0OMhcBV18stBs29OpXyuMDZpxziYueH6OQOUykuqAdB04t89/1O/w1cDnyilFU='
+    channelId: '1582543058',
+    channelSecret: '62cd62c68b0256d4b88e52a1c3c76de2',
+    channelAccessToken: 'jZZH8wMNFC52QX6W9+W6u4+fE73q1966j50Zk/jpDXiyK3E5DLOXoaGTcfBvy/grgdPWTCtSpU5qgW9tQHwWElxmE3kXTpzkvBhEcoFnFUSITeCEQ9RBInXumy9TiIWPuv3Q3Hcl0GEchIzubSgARwdB04t89/1O/w1cDnyilFU='
 });
 
 //取得使用者回覆的訊息
@@ -26,32 +26,31 @@ bot.on('message', function (event) {
     }
 });
 
-// 主動發送訊息
-// setTimeout(function () {
-//    var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
-//    var sendMsg = "push hands up ";
-//    bot.push(userId, [sendMsg]);
-//    console.log('userId: ' + userId);
-//    console.log('send: ' + sendMsg);
-//}, 5000);
-
-
 const app = express();
 const linebotParser = bot.parser();
 app.get("/", function (req, res) { 
     res.send("Hello this is Tai App.");
 });
 
-app.use(express.json());
+//app.use(express.json());
 
-app.post('/devops', function (req, res) { 
-    //console.log(req.body);
-    //console.log(req.body.message.html);
-    var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
+// app.post('/devops', function (req, res) { 
+//     //console.log(req.body);
+//     //console.log(req.body.message.html);
+//     var userId = 'Ud2a05f0c765c644f5c283b38b9aad803';
+//     var sendMsg = "push hands up ";
+//     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
+//     res.send(req.body.message.html);
+// });
+
+// 主動發送訊息
+setTimeout(function () {
+    var userId = 'Uae110a6760ecc0163e88555fa46a90b2';
     var sendMsg = "push hands up ";
-    bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
-    res.send(req.body.message.html);
-});
+    bot.push(userId, [sendMsg]);
+    console.log('userId: ' + userId);
+    console.log('send: ' + sendMsg);
+}, 3000);
 
 app.post('/linebot', linebotParser);
 
