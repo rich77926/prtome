@@ -35,7 +35,7 @@ app.get("/", function (req, res) {
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
-    var sendMsg = req.body.text.text + req.body.resource.url;
+    var sendMsg = req.body.message.text + ' '+ req.body.resource.url;
     bot.push(userId, [sendMsg]).catch(function(err){console.log(err)});
     res.send(sendMsg);
 });
