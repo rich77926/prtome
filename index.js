@@ -10,25 +10,25 @@ var bot = linebot({
 const app = express();
 const linebotParser = bot.parser();
 
-app.get("/", function (req, res) { 
+app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
 bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
-    event.reply('Thanks for invite me to this group, this group id is : ' + groupId);
+    event.reply('Thanks for invite me to this group, \n Copy the following string to HTTP headers of Azure DevOps Service hooks. \n groupId:' + groupId);
 });
 
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     console.log(req.header);
     var groupId = req.header('groupId');
-    console.log(groupId); 
-    var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
+    console.log(groupId);
+    // var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
 
-    var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : '+ req.body.resource._links.web.href;
-    bot.push(userId, [sendMsg]).catch(function(err) {
+    var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : ' + req.body.resource._links.web.href;
+    bot.push(groupId, [sendMsg]).catch(function (err) {
         console.error(err);
     });
     res.send(sendMsg);
