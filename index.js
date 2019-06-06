@@ -17,7 +17,7 @@ app.get("/", function (req, res) {
 bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
-    event.reply('Thanks for invite me to this group, \n Copy the following string to HTTP headers of Azure DevOps Service hooks. \n groupId:' + groupId);
+    event.reply('Thanks for invite me to this group, copy the following string to HTTP headers of Azure DevOps Service hooks. \n groupId:' + groupId);
 });
 
 app.use('/devops', express.json());
