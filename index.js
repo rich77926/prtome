@@ -17,9 +17,7 @@ app.get("/", function (req, res) {
 bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
-    event.reply('Integrate with service hooks. https://docs.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops');
-    event.reply('Copy the following string to HTTP headers of Azure DevOps Service hooks.')
-    event.reply('groupId:' + groupId);
+    event.reply('Integrate with service hooks, copy the following string to HTTP headers of Azure DevOps Service hooks. \n groupId:' + groupId + ' \n https://docs.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops');
 });
 
 app.use('/devops', express.json());
