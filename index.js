@@ -2,30 +2,33 @@ var linebot = require('linebot');
 var express = require('express');
 
 var bot = linebot({
-    channelId: '1582543058',
-    channelSecret: '62cd62c68b0256d4b88e52a1c3c76de2',
-    channelAccessToken: 'jZZH8wMNFC52QX6W9+W6u4+fE73q1966j50Zk/jpDXiyK3E5DLOXoaGTcfBvy/grgdPWTCtSpU5qgW9tQHwWElxmE3kXTpzkvBhEcoFnFUSITeCEQ9RBInXumy9TiIWPuv3Q3Hcl0GEchIzubSgARwdB04t89/1O/w1cDnyilFU='
+    channelId: process.env.DATABASE_URL,
+    channelSecret: process.env.DATABASE_URL,
+    channelAccessToken: process.env.DATABASE_URL
 });
 
 const app = express();
 const linebotParser = bot.parser();
 
+// default page of Http Get
 app.get("/", function (req, res) {
     res.send("Hello this is Tai App.");
 });
 
+// Linbot join to line group, and reply default setting message.
 bot.on('join', function (event) {
     let groupId = event.source.groupId;
     console.log(groupId);
     event.reply('Integrate with service hooks, copy the following string to HTTP headers of Azure DevOps Service hooks. \n groupId:' + groupId + ' \n https://docs.microsoft.com/en-us/azure/devops/service-hooks/overview?view=azure-devops');
 });
+app.post('/linebot', linebotParser);
 
+// Provide a web hook of Azure devoops for transfer pull message to Line.
 app.use('/devops', express.json());
 app.post('/devops', function (req, res) {
     console.log(req.header);
     var groupId = req.header('groupId');
     console.log(groupId);
-    // var userId = 'Cf76da8bb9560777af485a8a2fbeffe42';
 
     var sendMsg = req.body.resource.createdBy.displayName + ' created a PR, approve it by : ' + req.body.resource._links.web.href;
     bot.push(groupId, [sendMsg]).catch(function (err) {
@@ -34,9 +37,7 @@ app.post('/devops', function (req, res) {
     res.send(sendMsg);
 });
 
-app.post('/linebot', linebotParser);
-
-//因為 express 預設走 port 3000，而 heroku 上預設卻不是，要透過下列程式轉換
+// Run web
 var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
