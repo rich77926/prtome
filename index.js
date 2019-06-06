@@ -2,9 +2,9 @@ var linebot = require('linebot');
 var express = require('express');
 
 var bot = linebot({
-    channelId: process.env.DATABASE_URL,
-    channelSecret: process.env.DATABASE_URL,
-    channelAccessToken: process.env.DATABASE_URL
+    channelId: process.env.linebot_channelId,
+    channelSecret: process.env.linebot_channelSecret,
+    channelAccessToken: process.env.linebot_channelAccessToken
 });
 
 const app = express();
